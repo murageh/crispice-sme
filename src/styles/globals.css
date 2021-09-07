@@ -1,0 +1,490 @@
+@charset "UTF-8";
+:root {
+    /* Default values for light theme */
+    --background-color: #fafafa;
+
+    --error-color: #FF0000;
+    --placeholder-color: gray;
+
+    --scrollbar-thumb: #0080ff;
+    --scrollbar-track: transparent;
+    --fixed-background: transparent;
+    --light-gradient: linear-gradient(125deg,
+    #ECFCFF25 0%, #ECFCFF25 40%,
+    #B2FCFF25 calc(40% + 1px),
+    #B2FCFF20 60%, #5EDFFF20 calc(60% + 1px),
+    #5EDFFF20 72%, #3E64FF25 calc(72% + 1px),
+    #3E64FF25 100%);
+    --dark-background: transparent;
+    --circle-background: #0080ff12;
+    --color: #202020;
+    --orange-border: #ff8000;
+    --normal-blue: blue;
+    --my-blue: #0080ff;
+    --button-border: #eaeaea;
+    --nav-background: #fafafaee;
+    --nav-box-shadow: #ccc;
+    --nav-color: #0080ff;
+    --nav-color-active-link: #0080ff;
+    --home-title-color: #0080ff;
+    --home-description-color: #353535;
+    --home-description-code-color: darkcyan;
+    --home-call-to-action-background: #0080ff;
+    --home-call-to-action-color: white;
+    --home-call-to-action-hover-background: #ff8000;
+    --home-call-to-action-hover-color: white;
+    --section-card-background: #fafafa77;
+    --section-card-title-color: #0070f3;
+    --section-card-text-color: #101010;
+
+    --image-blend-mode: normal;
+    --carousel-background: #101010aa;
+    --carousel-background-hover: #10101050;
+    --carousel-label-color: #fafafa;
+    --carousel-label-background: #10101077;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 62.5%;
+    font-family: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+* {
+    font-size: 1.6rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+}
+
+h1, h2 {
+    margin: 1.8rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -3;
+    background: var(--light-gradient);
+    background-blend-mode: color-dodge, difference, lighten, color-dodge, normal;
+    height: 100vh;
+    width: 100vw;
+
+    /** Essential for switching between dark mode and light mode **/
+    background-color: var(--fixed-background);
+}
+
+.black_background {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+    background: var(--dark-background);
+    background-blend-mode: color-dodge, difference, lighten, color-dodge, normal;
+}
+
+
+/***** CUSTOM SCROLLBAR ******/
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    color: transparent;
+    border-radius: 1000px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #0080ff;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+    border-radius: 100px;
+}
+
+
+/***/
+
+code a {
+    font-size: inherit;
+    color: var(--home-description-code-color);
+}
+
+code a:hover {
+    text-decoration: underline;
+}
+
+
+/************ COLLAPSIBLE ELEMENTS ******/
+
+.collapsible__element {
+    display: flex;
+    flex-flow: column;
+    transition: 0.3s;
+}
+
+.collapsible__header {
+    display: flex;
+    padding: 1rem;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: fit-content;
+    align-self: center;
+}
+
+.collapsible__header code {
+    color: var(--color);
+    background-color: transparent;
+    padding: 0 1rem;
+}
+
+.collapsible__header span {
+    margin-left: 1rem;
+}
+
+.collapsible__header code:hover,
+.collapsible__header code:focus {
+    color: blue;
+    text-decoration: underline;
+}
+
+.collapsible__header:focus #collapsible_header_icon,
+.collapsible__header:hover #collapsible_header_icon,
+.collapsible__header:hover #collapsible_header_text,
+.collapsible__header:hover #collapsible_header_text {
+    color: blue;
+    outline: 0 transparent;
+}
+
+.collapsible__header:hover #collapsible_header_text,
+.collapsible__header:hover #collapsible_header_text {
+    text-decoration: underline;
+}
+
+
+.collapsible__content {
+    overflow: hidden;
+    transition: height 0.2s ease-in-out;
+}
+
+.collapsible__active {
+
+}
+
+/****** DARK/LIGHT THEME BUTTON ***/
+
+.MuiIconButton-root {
+
+}
+
+.MuiIconButton-root:hover {
+    color: #ff8000;
+}
+
+.choose-us-cards{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.choose-us-card {
+    box-sizing: border-box;
+    width: 45%;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--nav-background);
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.choose-us-card h2 {
+    color: var(--nav-color);
+    text-align: center;
+}
+
+.choose-us-card .MuiSvgIcon-fontSizeLarge {
+    font-size: 36px;
+    color: var(--nav-color);
+}
+
+.choose-us-card p {
+    margin: 1.8rem;
+}
+
+.choose-us-card a {
+    color: var(--nav-color);
+}
+
+
+/************** WHATSAPP ICON ***************/
+
+.floating-social-menu {
+    padding: 1rem;
+    background: var(--fixed-background);
+    position: fixed;
+    left: 15px;
+    width: fit-content;
+    top: 90px;
+    display: flex;
+    flex-flow: column;
+}
+
+.floating-social-menu.footer_social {
+    padding: 1rem;
+    background: var(--fixed-background);
+    position: relative;
+    width: fit-content;
+    display: flex;
+    flex-flow: row;
+    /*top: -2.5rem;*/
+    top: 0;
+    left: 0;
+}
+
+.floating-social-menu a,
+.floating-social-menu.footer_social a
+{
+    display: flex;
+    margin: 1rem 0;
+    color: var(--nav-color);
+}
+
+.floating-social-menu.footer_social a{
+    margin: 1rem 1.5rem;
+}
+
+.floating-social-menu a svg {
+    font-size: 2.8rem;
+}
+
+.whatsapp-button {
+    height: 40px;
+    width: 40px;
+    background: var(--fixed-background);
+    border-radius: 50%;
+    position: fixed;
+    bottom: 50px;
+    right: 15px;
+    display: none;
+}
+
+.whatsapp-button img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+/************************************/
+
+.form-entity {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 1rem;
+}
+
+.form-label {
+    width: 70%;
+    margin: 1rem 0;
+    font-weight: 500;
+}
+
+.form-error {
+    width: 70%;
+    color: var(--error-color);
+    margin: .5rem 0;
+    font-size: 1.4rem;
+}
+
+.form-submit {
+    width: 70%;
+    padding: 1.5rem 1rem;
+    font-weight: 600;
+    font-size: 2rem;
+    background: var(--home-call-to-action-background);
+    color: var(--home-call-to-action-color);
+    outline: transparent;
+    border: none;
+    border-radius: .5rem 4rem;
+    box-shadow: 0 16px 24px 2px rgba(29, 17, 51, .04), 0 6px 32px 4px rgba(9, 32, 77, .12), 0 8px 12px -5px rgba(29, 17, 51, .12);
+}
+
+/*= input focus effects css
+=========================== */
+:focus {
+    outline: none;
+}
+
+.col-3 {
+    width: 70%;
+    position: relative;
+}
+
+/* necessary to give position: relative to parent. */
+input[type="text"], textarea {
+    font: 1.6rem/200% "Poppins", "Helvetica", Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    color: var(--color);
+    background: var(--background-color);
+    border: 1px solid var(--home-call-to-action-background);
+}
+
+input[type="text"]::placeholder, textarea::placeholder {
+    color: var(--placeholder-color);
+}
+
+textarea {
+    padding: 7px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 200px;
+    max-height: 200px;
+}
+
+.effect-2 {
+    border: 0;
+    padding: 7px;
+    border-bottom: 1px solid #ccc;
+}
+
+.effect-2 ~ .focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #3399ff;
+    transition: 0.4s;
+}
+
+.effect-2:focus ~ .focus-border {
+    width: 100%;
+    transition: 0.4s;
+    left: 0;
+}
+
+/** FULL-SCREEN LOADER WHILE SENDING MESSAGE ***/
+
+.full-screen-loader-container {
+    position: fixed;
+    padding: 20px;
+    left: 50%;
+    margin-left: -97px;
+    top: 50%;
+    margin-top: -52px;
+    background-color: var(--background-color);
+    color: var(--nav-color);
+    border-radius: 10px;
+    box-shadow: 0 0 4px 1px #5555;
+    z-index: 10;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.full-screen-loader-container h4 {
+    margin: 0;
+}
+
+.error-link {
+    /*color: var(--nav-color);*/
+    text-decoration: underline;
+}
+
+.global_column {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+
+.global_column p a{
+    color: #0080ff;
+    display: inline-block;
+    margin-top: 0;
+    align-self: flex-start;
+}
+
+/************************************/
+
+@media (min-width: 1368px) {
+
+    .background {
+        /*width: 1368px;*/
+        margin: auto;
+    }
+
+    .floating-social-menu {
+        left: calc((100vw - (1368px - 0rem)) / 2);
+    }
+}
+
+@media (max-width: 800px) {
+
+    .collapsible__header {
+        box-shadow: 1px 1px 4px 0 var(--nav-box-shadow);
+    }
+
+    .col-3, .form-submit, .form-error, .form-label {
+        width: 100%;
+    }
+
+    .floating-social-menu {
+        display: none;
+    }
+
+    .whatsapp-button {
+        display: unset;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .choose-us-cards {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .choose-us-card {
+        box-sizing: border-box;
+        width: 90%;
+        padding: 2rem;
+    }
+}

@@ -1,0 +1,195 @@
+.ripple-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--circle-background);
+    animation: ripple 15s infinite;
+    box-shadow: 0 0 1px 0 #0070f305;
+    z-index: -1;
+}
+
+.small {
+    width: 200px;
+    height: 200px;
+    left: -100px;
+    bottom: -100px;
+}
+
+.right5 {
+    left: unset;
+    right: -100px;
+    bottom: -100px;
+}
+
+.medium {
+    width: 400px;
+    height: 400px;
+    left: -200px;
+    bottom: -200px;
+}
+
+.right4 {
+    left: unset;
+    right: -200px;
+    bottom: -200px;
+}
+
+.large {
+    width: 600px;
+    height: 600px;
+    left: -300px;
+    bottom: -300px;
+}
+
+.right3 {
+    left: unset;
+    right: -300px;
+    bottom: -300px;
+}
+
+.xlarge {
+    width: 800px;
+    height: 800px;
+    left: -400px;
+    bottom: -400px;
+}
+
+.right2 {
+    left: unset;
+    right: -400px;
+    bottom: -400px;
+}
+
+.xxlarge {
+    width: 1000px;
+    height: 1000px;
+    left: -500px;
+    bottom: -500px;
+}
+
+.right1 {
+    left: unset;
+    right: -500px;
+    bottom: -500px;
+}
+
+.shade1 {
+    opacity: 0.2;
+}
+
+.shade2 {
+    opacity: 0.5;
+}
+
+.shade3 {
+    opacity: 0.7;
+}
+
+.shade4 {
+    opacity: 0.8;
+}
+
+.shade5 {
+    opacity: 0.9;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(0.8);
+    }
+}
+
+/****************** FOR SMALLER DEVICES *********************/
+@media (max-width: 648px) {
+    .small {
+        width: 100px;
+        height: 100px;
+        left: -50px;
+        bottom: -50px;
+    }
+
+    .right5 {
+        left: unset;
+        right: -50px;
+        bottom: -50px;
+    }
+
+    .medium {
+        width: 200px;
+        height: 200px;
+        left: -100px;
+        bottom: -100px;
+    }
+
+    .right4 {
+        left: unset;
+        right: -100px;
+        bottom: -100px;
+    }
+
+    .large {
+        width: 300px;
+        height: 300px;
+        left: -150px;
+        bottom: -150px;
+    }
+
+    .right3 {
+        left: unset;
+        right: -150px;
+        bottom: -150px;
+    }
+
+    .xlarge {
+        width: 400px;
+        height: 400px;
+        left: -200px;
+        bottom: -200px;
+    }
+
+    .right2 {
+        left: unset;
+        right: -200px;
+        bottom: -200px;
+    }
+
+    .xxlarge {
+        width: 500px;
+        height: 500px;
+        left: -250px;
+        bottom: -250px;
+    }
+
+    .right1 {
+        left: unset;
+        right: -250px;
+        bottom: -250px;
+    }
+}
+
+/**********************/
+
+@media (min-width: 1368px) {
+    .ripple-background {
+        /*left: calc((100vw - (1368px - 8rem)) / 2);*/
+    }
+}

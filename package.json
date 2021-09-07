@@ -1,0 +1,34 @@
+{
+  "name": "crispice-sme",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 8080",
+    "build": "next build",
+    "start": "next start -p 8080",
+    "update-packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev&& npm update --save"
+  },
+  "dependencies": {
+    "@material-ui/core": "*",
+    "@material-ui/icons": "*",
+    "axios": "*",
+    "classnames": "*",
+    "gsap": "*",
+    "next": "*",
+    "npm-check-updates": "^11.8.3",
+    "react": "*",
+    "react-dom": "*",
+    "react-hook-form": "*",
+    "react-particles-js": "*",
+    "react-responsive-carousel": "*",
+    "react-slick": "*",
+    "react-toastify": "*"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/react": "*",
+    "css-loader": "*",
+    "ts-loader": "*",
+    "typescript": "*"
+  }
+}
