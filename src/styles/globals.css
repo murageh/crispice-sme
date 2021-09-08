@@ -227,7 +227,7 @@ code a:hover {
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
-    background: var(--nav-background);
+    background: var(--background-color);
     border-radius: 15px;
     margin: 10px;
 }

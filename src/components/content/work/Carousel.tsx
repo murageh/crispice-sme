@@ -24,6 +24,10 @@ const arrowStyles: CSSProperties = {
     justifyContent: 'center',
     cursor: 'pointer',
     right: '15px',
+    border: '1px solid var(--nav-color)',
+    borderRadius: '5px',
+    color: 'var(--nav-color)',
+    background: 'var(--background-color)',
 }
 
 
