@@ -34,20 +34,20 @@ export const CarouselContent = [
         path: '#juja-preparatory'
     },
 
-    {
-        title: 'Jiji KE',
-        description: 'Brand ambassador',
-        image: 'jiji-kenya.png',
-        path: '#jiji-kenya'
-    },
-
-    {
-        title: 'Wowzi',
-        description: 'Influencer',
-        image: 'wowzi.png',
-        path: '#wowzi'
-    }
-    ,
+    // {
+    //     title: 'Jiji KE',
+    //     description: 'Brand ambassador',
+    //     image: 'jiji-kenya.png',
+    //     path: '#jiji-kenya'
+    // },
+    //
+    // {
+    //     title: 'Wowzi',
+    //     description: 'Influencer',
+    //     image: 'wowzi.png',
+    //     path: '#wowzi'
+    // }
+    // ,
 
     // {
     //     title: ' Tunda Farm Society',

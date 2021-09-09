@@ -30,10 +30,9 @@ export default function Projects() {
             <div className={styles.intro}>
                 <h1 className={homeStyles.sub_title}>Work & Projects</h1>
                 <p className={homeStyles.smaller_description}>
-                    Over the years, my team and I have worked with clients on a variety of projects ranging from
+                    Over time, the Crisp-ice Technologies team has worked with clients on a variety of projects ranging from
                     website design and development, digital marketing, digital marketing strategy and planning,
-                    graphics design, brand design, as well as being a social influencer and brand ambassador
-                    for various brands.
+                    graphics design and brand design for various brands.
                 </p>
             </div>
 
