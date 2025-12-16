@@ -15,7 +15,7 @@
     "classnames": "*",
     "gsap": "*",
     "next": "*",
-    "npm-check-updates": "^11.8.3",
+    "npm-check-updates": "^19.2.0",
     "react": "*",
     "react-dom": "*",
     "react-hook-form": "*",
