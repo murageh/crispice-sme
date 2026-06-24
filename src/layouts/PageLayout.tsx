@@ -82,8 +82,6 @@ export default function PageLayout({children}) {
                           content="https://i.postimg.cc/Vk40XrZL/Crisp-ice-White-Laptop-Twitter-Header.png"/>
 
                     <link rel="icon" href="/favicon.ico"/>
-                    <link rel="stylesheet"
-                          href="https://fonts.googleapis.com/css?family=Poppins"/>
                 </Head>
                 <main className={styles.main}>
                     <Header sticky={isSticky}/>

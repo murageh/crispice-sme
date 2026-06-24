@@ -59,13 +59,14 @@ const WebDesignService = () => {
                     <div className={sectionStyles.image_right}>
                         <p>
                             Our web design and development package enables you to:
-                            <ul>
-                                <li>Stay ahead of customer satisfaction trends.</li>
-                                <li>Feel a new experience.</li>
-                                <li>Realize the full benefits of modern marketing on the digital space.</li>
-                                <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Request for quotation &rarr;</a>
-                            </ul>
                         </p>
+                        <ul>
+                            <li>Stay ahead of customer satisfaction trends.</li>
+                            <li>Feel a new experience.</li>
+                            <li>Realize the full benefits of modern marketing on the digital space.</li>
+                            <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Request for
+                                quotation &rarr;</a>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -88,12 +89,13 @@ const MobileDevService = () => {
                     <div className={sectionStyles.image_right}>
                         <p>
                             We are the right people to actualize your app ideas and bring them to life.
-                            <ul>
-                                <li>We deliver apps right to your very exact requirements.</li>
-                                <li>We ensure maximized productivity in every production.</li>
-                                <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Tell us your app idea &rarr;</a>
-                            </ul>
                         </p>
+                        <ul>
+                            <li>We deliver apps right to your very exact requirements.</li>
+                            <li>We ensure maximized productivity in every production.</li>
+                            <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Tell us your app
+                                idea &rarr;</a>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -116,15 +118,15 @@ const DigitalMarketingService = () => {
                     <div className={sectionStyles.image_right}>
                         <p>
                             <b>Quick tip:</b> Both your customers AND competitors are online.
-                            <ul>
-                                <li>We offer digital marketing services for brands, companies and individuals.</li>
-                                <li>We plan, design and execute meticulous campaigns to ensure your
-                                    brand gains the most traction on the digital space.
-                                </li>
-                                <li>Get in touch with us to discuss the right solution for you.</li>
-                                <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Let's discuss. &rarr;</a>
-                            </ul>
                         </p>
+                        <ul>
+                            <li>We offer digital marketing services for brands, companies and individuals.</li>
+                            <li>We plan, design and execute meticulous campaigns to ensure your
+                                brand gains the most traction on the digital space.
+                            </li>
+                            <li>Get in touch with us to discuss the right solution for you.</li>
+                            <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Let's discuss. &rarr;</a>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -156,7 +158,8 @@ const DigitalConsultingService = () => {
                             <br/>
                             We would be glad to help your brand stand out from the rest.
                             <ul>
-                                <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Get in touch &rarr;</a>
+                                <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Get in
+                                    touch &rarr;</a>
                             </ul>
                         </p>
                     </div>
@@ -180,14 +183,15 @@ const RetailingService = () => {
                     <div className={sectionStyles.image_right}>
                         <p>
                             We also deal in all electronics, parts and accessories, including:
-                            <ul>
+                        </p>
+                        <ul>
                             <li>Screens, wireless keyboards... mice, yada yada...</li>
                             <li>Broken screens..... &#128148;</li>
                             <p>We got you on that and many more.</p>
                             <li>We deal in all types of phone and computer accessories.</li>
-                            <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Shoot us a message to get a quote. &rarr;</a>
+                            <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Shoot us a message to get
+                                a quote. &rarr;</a>
                         </ul>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -207,15 +211,16 @@ const GraphicDesignService = () => {
                         data-content={"Graphic Design"}
                     />
                     <div className={sectionStyles.image_right}>
-                        <p>
-                            <ul>
-                                <p>We design: </p>
-                                <li>Logos, posters, flyers, pamphlets, and anything graphic.</li>
-                                <li>We are a one-stop shop for all graphic solutions.</li>
-                                <li>You just might be left wondering why you didn't find us sooner. &#128540;</li>
-                                <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Shoot us a message &rarr;</a>
-                            </ul>
-                        </p>
+
+                        <ul>
+                            <p>We design: </p>
+                            <li>Logos, posters, flyers, pamphlets, and anything graphic.</li>
+                            <li>We are a one-stop shop for all graphic solutions.</li>
+                            <li>You just might be left wondering why you didn't find us sooner. &#128540;</li>
+                            <a href={currentPath === homePage ? "#contact-name" : "/contact"}>Shoot us a
+                                message &rarr;</a>
+                        </ul>
+
                     </div>
                 </div>
             </div>

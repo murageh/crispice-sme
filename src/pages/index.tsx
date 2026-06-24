@@ -21,7 +21,7 @@ export default function Home(){
         <>
             <main className={styles.hero}>
                 <h1 className={styles.title}>
-                    Great businesses deserve awesome webs experiences.
+                    Great businesses need amazing web experiences.
                 </h1>
 
                 <p className={styles.description}>

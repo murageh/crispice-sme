@@ -87,11 +87,11 @@ type Props = {
 };
 export const ThemeProvider = ({children}: Props) => {
     const [themeName, setThemeName] = React.useState<ThemeName>("light");
-    const prefersDarkTheme = !ISSERVER ? localStorage.getItem("theme") === "dark" : false;
 
     React.useEffect(() => {
         const darkOS = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        setTheme(darkOS && prefersDarkTheme ? "dark" : "light");
+        const stored = localStorage.getItem("theme") as ThemeName | null;
+        setTheme(stored ?? (darkOS ? "dark" : "light"));
     }, []);
 
     const setTheme = (name: ThemeName) => {

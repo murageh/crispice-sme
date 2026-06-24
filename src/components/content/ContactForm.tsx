@@ -111,7 +111,12 @@ function ContactFormContent() {
                     </div>
 
                     <div className={"form-entity"}>
-                        <input className={"form-submit"} type="submit" value={"Send messsage"}/>
+                        <input
+                            className={"form-submit"}
+                            type="submit"
+                            value={executeRecaptcha ? "Send message" : "Loading..."}
+                            disabled={!executeRecaptcha}
+                        />
                     </div>
                 </form>
             </div>
