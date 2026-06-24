@@ -4,7 +4,6 @@ import sectionStyles from "../../styles/home.sections.module.css";
 import homeStyles from "../../styles/Home.module.css"
 import {homePage} from "./ServicesContent";
 import {useRouter} from "next/router";
-import {Money} from "@material-ui/icons";
 import {AppIcon} from "../global/helpers/AppIcon";
 
 let currentPath = "";

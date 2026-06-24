@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    AccessTime, AccessTimeOutlined,
+    AccessTimeOutlined,
     Brightness7Rounded,
     ChatBubbleOutlineRounded,
     CloseRounded, DoneAllOutlined,
@@ -9,11 +9,11 @@ import {
     Instagram,
     LinkedIn,
     MailOutlineRounded,
-    MenuRounded, MonetizationOnOutlined, Money, MoneyOutlined,
-    NightsStayRounded, Timer, Timer3Outlined,
-    Twitter, WorkOutline,
+    MenuRounded, MonetizationOnOutlined,
+    NightsStayRounded,
+    Twitter,
     YouTube
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 
 export const AppIcon = ({ type, size }) => {
   switch (type) {

@@ -21,17 +21,19 @@ export default function Home(){
         <>
             <main className={styles.hero}>
                 <h1 className={styles.title}>
-                    Great businesses need awesome websites.
+                    Great businesses deserve awesome webs experiences.
                 </h1>
 
                 <p className={styles.description}>
                     We help businesses, brands, and individuals like you, stand out from
                     <b> the rest. </b> We deliver beautifully crafted websites
                     that give you maximum conversions. <br /><br />
+                    We also offer digital marketing services. Let's chat!
+                    <br /><br />
                 </p>
 
                 <a href="#contact-name" className={`${styles.call_to_action}`}>
-                    <h2>Book a free consultation {" "} &rarr;</h2>
+                    <h2>Book a consultation {" "} &rarr;</h2>
                 </a>
             </main>
             <div className={styles.content}>

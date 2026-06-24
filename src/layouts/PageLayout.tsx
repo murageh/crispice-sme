@@ -19,23 +19,24 @@ export default function PageLayout({children}) {
     const {isSticky, element} = useSticky();
 
     useEffect(() => {
-        document.querySelectorAll(".col-3 input")
-            .forEach((element) => {
-                //console.log("found ", element);
-                element.value = "";
-            })
-        document.querySelectorAll(".input-effect input")
-            .forEach((element) => {
-                element.addEventListener('focusout', function () {
-                    //console.log("setting listeners for", element)
-                    if (element.value !== "") {
-                        element.classList.add("has-content");
-                    } else {
-                        element.classList.remove("has-content");
-                    }
-                })
-            })
-    })
+        document.querySelectorAll<HTMLInputElement>(".col-3 input")
+            .forEach((el) => { el.value = ""; });
+
+        const inputs = document.querySelectorAll<HTMLInputElement>(".input-effect input");
+        const handlers = new Map<HTMLInputElement, () => void>();
+
+        inputs.forEach((el) => {
+            const handler = () => {
+                el.classList.toggle("has-content", el.value !== "");
+            };
+            handlers.set(el, handler);
+            el.addEventListener('focusout', handler);
+        });
+
+        return () => {
+            handlers.forEach((handler, el) => el.removeEventListener('focusout', handler));
+        };
+    }, [])
 
     const getDate = () => {
         //1/6/2018

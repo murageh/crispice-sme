@@ -1,24 +1,32 @@
-import React, {useState} from "react";
+import React, {useState, useCallback} from "react";
 import {useForm} from "react-hook-form";
 import styles from "../../styles/contact.module.css";
 import sectionStyles from "../../styles/home.sections.module.css";
 import axios from "axios";
+import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
+import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3";
 
 import {errorToaster, successToaster} from "../global/helpers/Toaster";
 import {ProgressLoader} from "../global/ProgressLaoder";
 
-function ContactForm() {
+function ContactFormContent() {
     const [loading, setLoading] = useState(false);
+    const { executeRecaptcha } = useGoogleReCaptcha();
 
     const {
         register,
         formState: {errors},
-        handleSubmit
+        handleSubmit,
+        reset
     } = useForm({
         mode: "onBlur" // "onChange"
     });
 
-    const onSubmit = (data) => {
+    const onSubmit = useCallback(async (data) => {
+        if (!executeRecaptcha) {
+            errorToaster('CAPTCHA not ready');
+            return;
+        }
         setLoading(true);
         const message =
             <>
@@ -29,35 +37,22 @@ function ContactForm() {
         ;
 
         try {
-            axios.post(
-                `${process.env.MAIL_LINK}`,
-                data
-            ).then((response) => {
-                if (response.status === 200) {
-                    successToaster("Your message has been sent. We will respond as soon as possible.");
-                    setLoading(false);
-                }
-            }).catch((error) => {
-                const status = error.response?.data.status ?? 500;
-                console.log(status);
+            const token = await executeRecaptcha('contact_form');
+            const response = await axios.post('/api/contact', { ...data, recaptchaToken: token });
 
-                if (status === 400) {
-                    errorToaster(message);
-                    setLoading(false);
-                } else {
-                    errorToaster(message, 'error', 'top-right', 5000);
-                    setLoading(false);
-                }
-            });
-
+            if (response.status === 200) {
+                successToaster("Your message has been sent. We will respond as soon as possible.");
+                reset();
+                setLoading(false);
+            }
         } catch (error) {
-            console.log("caught unknown error.");
+            console.log("caught error.", error);
             errorToaster(message,
                 'error', 'top-right', 5000
             );
             setLoading(false);
         }
-    }
+    }, [executeRecaptcha, reset]);
 
     return (
         <>
@@ -121,6 +116,14 @@ function ContactForm() {
                 </form>
             </div>
         </>
+    );
+}
+
+function ContactForm() {
+    return (
+        <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}>
+            <ContactFormContent />
+        </GoogleReCaptchaProvider>
     );
 }
 
