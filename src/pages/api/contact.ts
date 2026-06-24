@@ -1,7 +1,28 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { Resend } from 'resend';
+import type {NextApiRequest, NextApiResponse} from 'next';
+import {Resend} from 'resend';
+
+function getArray(str: string | undefined) {
+    if (!str) return null;
+
+    let arr: string[] | null = null;
+    try {
+        const v = JSON.parse(process.env.TO_EMAILS);
+        if (Array.isArray(v)) {
+            arr = v;
+        } else {
+            throw "Invalid TO_EMAILS field.";
+        }
+    } catch (e) {
+        console.error(e);
+    }
+
+    return arr;
+}
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const FROM_EMAIL = process.env.FROM_EMAIL || 'contact@murageh.co.ke';
+const TO_EMAILS = getArray(process.env.TO_EMAILS) ?? ['muragehdeveloper@gmail.com'];
+
 
 const ALLOWED_ORIGINS = [
     'https://crispice.murageh.co.ke',
@@ -22,13 +43,13 @@ function sanitize(value: unknown): string {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
-        return res.status(405).json({ message: 'Method not allowed' });
+        return res.status(405).json({message: 'Method not allowed'});
     }
 
     const origin = req.headers.origin || req.headers.referer || '';
     const isAllowedOrigin = ALLOWED_ORIGINS.some(o => origin.startsWith(o));
     if (!isAllowedOrigin) {
-        return res.status(403).json({ message: 'Forbidden' });
+        return res.status(403).json({message: 'Forbidden'});
     }
 
     const name = sanitize(req.body?.name);
@@ -37,41 +58,41 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const recaptchaToken = typeof req.body?.recaptchaToken === 'string' ? req.body.recaptchaToken : '';
 
     if (!name || name.length > 100) {
-        return res.status(400).json({ message: 'Invalid name' });
+        return res.status(400).json({message: 'Invalid name'});
     }
     if (!email || !isValidEmail(email) || email.length > 254) {
-        return res.status(400).json({ message: 'Invalid email address' });
+        return res.status(400).json({message: 'Invalid email address'});
     }
     if (!message || message.length < 10 || message.length > 2000) {
-        return res.status(400).json({ message: 'Message must be between 10 and 2000 characters' });
+        return res.status(400).json({message: 'Message must be between 10 and 2000 characters'});
     }
     if (!recaptchaToken) {
-        return res.status(400).json({ message: 'CAPTCHA token missing' });
+        return res.status(400).json({message: 'CAPTCHA token missing'});
     }
 
     const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
     });
     const recaptchaData = await recaptchaResponse.json();
 
     if (!recaptchaData.success || recaptchaData.score < RECAPTCHA_SCORE_THRESHOLD) {
-        return res.status(400).json({ message: 'CAPTCHA verification failed' });
+        return res.status(400).json({message: 'CAPTCHA verification failed'});
     }
 
     try {
         await resend.emails.send({
-            from: 'contact@crispice.murageh.co.ke',
-            to: 'crispicetech@gmail.com',
+            from: FROM_EMAIL,
+            to: TO_EMAILS,
             replyTo: email,
             subject: `Contact form: ${name}`,
             text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
         });
 
-        res.status(200).json({ message: 'Message sent successfully' });
+        res.status(200).json({message: 'Message sent successfully'});
     } catch (error) {
         console.error('Resend error:', error);
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(500).json({message: 'Internal server error'});
     }
 }
