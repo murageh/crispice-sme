@@ -1,7 +1,8 @@
+import React from "react";
 import {Slide, toast} from "react-toastify";
 
 
-export const errorToaster = (message?: JSX.Element, type = "error", position = 'top-right', autoClose = 5000, transition = Slide) => {
+export const errorToaster = (message?: React.ReactNode, type = "error", position = 'top-right', autoClose = 5000, transition = Slide) => {
 
     return toast.error(message ?? "Message", {
         transition: transition,
